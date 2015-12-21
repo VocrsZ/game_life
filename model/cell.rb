@@ -2,8 +2,8 @@ class Cell
 
   attr_writer :neighbors
 
-  def initialize(chance = 0.1)
-    @alive = rand > 0.1 ? false : true
+  def initialize(alive = false)
+    @alive = alive
     @neighbors = 0
   end
 
