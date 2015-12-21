@@ -6,7 +6,7 @@ class Game
 
   DEFAULT_POPULATION = [[false, false, false], [true, true, true], [false, false, false]]
 
-  def initialize(size = [3, 3], options = {:population => :default})
+  def initialize(size = [3, 3], options = {:population => :random})
 
     @width = size[0] < 3 ? 3 : size[0]
     @height = size[1] < 3 ? 3 : size[1]

@@ -1,20 +1,20 @@
 require_relative '../model/game.rb'
+require_relative '../view/game_view.rb'
 
 class GameController
 
-  attr_reader :process
-
-	def initialize
-		@life = Game.new
+	def initialize(size = [3, 3], options = {:population => :random})
+		@life = Game.new(size, options)
+    @printer = GameView.new
     @process = false
 	end
 
   def make_steps(count = 1, delay = 1)
     @process = true
     count.times do |t|
-      return unless @process
-      return t if @life.stop_game?
+      return if !@process && @life.stop_game?
       @life.iterate!
+      @printer.print(@life.get_screen)
       sleep delay
     end
     @process = false
@@ -25,3 +25,6 @@ class GameController
   end
 
 end
+
+test = GameController.new([5, 5])
+test.make_steps(100)
