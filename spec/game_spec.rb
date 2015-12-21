@@ -41,4 +41,18 @@ describe Game do
       end
     end
   end
+
+  describe "iterate method" do
+
+    let(:life) { Game.new([3, 3], population => :default) }
+    let(:next_step) { [[false, true, false], [false, true, false], [false, true, false]] }
+
+    before do
+      life.iterate!
+    end
+
+    it "should eq to the next step generation" do
+      expect(life.get_screen).to eq(next_step)
+    end
+  end
 end

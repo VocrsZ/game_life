@@ -4,7 +4,7 @@ class Game
 
   attr_reader :width, :height
 
-  DEFAULT_POPULATION = [[true, true, true], [false, false, false], [false, false, false]]
+  DEFAULT_POPULATION = [[false, false, false], [true, true, true], [false, false, false]]
 
   def initialize(size = [3, 3], options = {:population => :default})
 
