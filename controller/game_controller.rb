@@ -3,11 +3,11 @@ require_relative '../view/game_view.rb'
 
 class GameController
 
-	def initialize(size = [3, 3], options = {:population => :random})
-		@life = Game.new(size, options)
+  def initialize(size = [3, 3], options = {:population => :random})
+    @life = Game.new(size, options)
     @printer = GameView.new
     @process = false
-	end
+  end
 
   def make_steps(count = 1, delay = 1)
     @process = true
