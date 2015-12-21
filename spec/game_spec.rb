@@ -44,7 +44,7 @@ describe Game do
 
   describe "iterate method" do
 
-    let(:life) { Game.new([3, 3], population => :default) }
+    let(:life) { Game.new([3, 3], :population => :default) }
     let(:next_step) { [[false, true, false], [false, true, false], [false, true, false]] }
 
     before do

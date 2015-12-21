@@ -27,6 +27,24 @@ class Game
     end
   end
 
+  def iterate!
+    @screen.each_with_index.map do |row, y|
+      row.each_with_index.map do |cell, x|
+        set_alive_neighbor_count(x, y)
+      end
+    end
+
+    @screen.each_with_index.map do |row, y|
+      row.each_with_index.map do |cell, x|
+        @screen[y][x].iterate!
+      end
+    end
+  end
+
+  def stop_game?
+    get_alive_count == @width * @height || get_alive_count == 0
+  end
+
   private
 
   def populate_by_default
