@@ -12,7 +12,7 @@ class GameController
   def make_steps(count = 1, delay = 1)
     @process = true
     count.times do |t|
-      return if !@process && @life.stop_game?
+      return if !@process || @life.stop_game?
       @life.iterate!
       @printer.print(@life.get_screen)
       sleep delay
@@ -25,6 +25,3 @@ class GameController
   end
 
 end
-
-test = GameController.new([5, 5])
-test.make_steps(100)
